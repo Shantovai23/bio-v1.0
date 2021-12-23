@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logo{
+    font-size: 45px;
+    font-family: 'Righteous', cursive;
+    text-decoration: none;
+    /* color: #ff3377; */
+}
+.main-div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.main-heading{
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(70, 69, 69);
+}
+.logo-name{
+    font-family: 'Righteous', cursive;
+    color: #ff3377;
+}
+.heading-button{
+    background-color: #ff3377;
+    color: #ffff;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.1s;
+   
+}
+.heading-button i{
+    font-size: 20px;
+    margin: 0 5px;
+}
+.heading-button:hover{
+    text-decoration: none;
+    color: #ffff;
+  background-color: #ff1160;
+}
+.personal-heading{
+    color: rgb(70, 69, 69);
+    padding: 30px 0;
+}
+.main-form-div{
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    display: flex;
+    margin-bottom: 5px;
   }
+
+  input[type='text'],
+input[type='email'],
+input[type='number']
+{
+  display: block;
+  width: 300px;
+  font-size: 18px;
+  line-height: 1.42;
+  color: #555;
+  background-color: #fff;
+  padding: 6px 12px;
+  border: 1px solid #555;
+  border-radius: 4px;
+}
+.district{
+    width: 300px;
+    font-size: 18px;
+    line-height: 1.42;
+    color: #555;
+    background-color: #fff;
+    padding: 6px 12px;
+    border: 1px solid #555;
+    border-radius: 4px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.next-button{
+    background-color: #ff3377;
+    color: #ffff;
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.1s;
+    border: none;
+    transform: 0.1s;
+}
+.next-button:hover{
+    background-color: #ff1160;
+}
+i{
+    font-size: 20px;
+    margin: 0 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.main-form-div div{
+    margin-bottom: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error{
+    color: rgb(155, 36, 36);
+    font-size: 14px;
 }
