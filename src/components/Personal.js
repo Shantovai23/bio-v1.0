@@ -5,6 +5,9 @@ import * as Yup from 'yup'
 import axios from 'axios'
 import ErrorMsg from './ErrorMsg'
 import PageHead from './PageHead'
+import { useDispatch } from 'react-redux'
+import { setPersonalInfo } from '../redux/actions/formActions'
+import {useNavigate} from 'react-router-dom'
 
 const initialValues={
     name:'',
@@ -20,22 +23,31 @@ const validationSchema=Yup.object({
     .email('Invalid email')
     .required('Enter your email'),
     phone:Yup.number().positive().integer().required('Enter your phone number'),
-    age:Yup.number().positive().integer().required('Enter your  age'),
+    age:Yup.string().required('Enter your  date of birth'),
     district:Yup.string().required("Select your district"),
     divisions:Yup.string().required("Select your division")
 
 })
 
-const onSubmit=values=>{
-    alert(JSON.stringify(values))
-    console.log(values)
-}
+
 
 
 const Personal = () => {
 
     const [division,setDivision]=useState([])
     const [district,setDistrict]=useState([])
+
+    // const personal=useSelector((state)=>state)
+    // console.log(personal)
+
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
+
+
+    const onSubmit=values=>{
+      dispatch(setPersonalInfo(values)) 
+      navigate('/qualification')
+  }
 
     
 
@@ -54,8 +66,7 @@ const Personal = () => {
          fetchDivisions() 
     },[])
 
-  console.log(district)
-
+  
     return (
         <div>
             <Container>
@@ -69,9 +80,10 @@ const Personal = () => {
                   validationSchema={validationSchema}
                   onSubmit={onSubmit}  
                   >
-                      
+                        
                           <Form>
-                              <div >
+                             <div className='form-shadow'>
+                              <div>
                               <label htmlFor="name">Name</label>
                               <Field type='text' name='name' id='name' />
                               <ErrorMessage name='name' component={ErrorMsg}/>
@@ -90,8 +102,8 @@ const Personal = () => {
                               </div>
 
                               <div>
-                              <label htmlFor="age">Age</label>
-                              <Field  type='number' name='age' id='age'/>
+                              <label htmlFor="birth">Date of Birth</label>
+                              <Field type='date' name='age' id='age'/>
                               <ErrorMessage name='age' component={ErrorMsg}/>
                               </div>
 
@@ -127,7 +139,9 @@ const Personal = () => {
                                   {/* <Button  name='Next' icon={<i className="fas fa-sign-in-alt"></i>}/> */}
                                   <button type='submit' className='next-button mt-3'><i className="fas fa-sign-in-alt"></i>Next</button>
                               </div>
+                              </div>
                           </Form>
+                         
                   </Formik>
                 </div>
             </Container>
